@@ -1,0 +1,12 @@
+web:
+    build:  .
+    command:    pserve development.ini --reload
+    ports:
+        - "6543:6543"
+    volumes:
+        - .:/pyramid-hello-world
+    links:
+        - db
+
+db:
+    image: mongo:3.0.2
